@@ -76,49 +76,9 @@ movies = [
 }
 ]
 
-#1
 def good_movie(name):
     for i in movies:
         if i["name"]==name:
             return i["imdb"]>5.5
         
 print(good_movie("We Two"))
-
-#2
-def list_good_movies():
-    ans = []
-    for i in movies:
-        if i["imdb"]>5.5:
-            ans.append(i["name"])
-    return ans
-
-print(*list_good_movies())
-
-#3
-def task3(category_name):
-    ans = []
-    for i in movies:
-        if i["category"] == category_name:
-            ans.append(i["name"])
-    return ans
-
-print(task3("Romance"))
-
-#4
-def avg_ranking(movie_list):
-    l = len(movie_list)
-    s = 0
-    for i in movie_list:
-        for j in movies:
-            if j["name"]==i:
-                s+=j["imdb"]
-                break
-    return s/l
-
-print(avg_ranking(['The Choice', 'Colonia', 'Love', 'Bride Wars', 'We Two']))
-
-#5
-def avg_category(category_name):
-    return avg_ranking(task3(category_name))
-
-print(avg_category("Romance"))
