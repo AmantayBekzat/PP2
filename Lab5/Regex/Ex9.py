@@ -1,0 +1,18 @@
+import re
+
+with open("row.txt", "r", encoding="utf-8") as file:
+    text = file.readlines()
+found=False
+
+for line in text:
+    line=line.strip()
+    x = re.sub(r"(?<!^)(?=[A-Z])", " ", line)
+    if x != line:
+        print(x)
+        found = True
+
+if not found:
+    print("Not found")
+
+
+
